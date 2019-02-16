@@ -1,0 +1,46 @@
+{
+    "name": "asika/natika",
+    "description": "Natika Forum",
+    "homepage": "https://github.com/ventoviro/windwalker",
+    "license": "GNU Lesser General Public License",
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "Simon Asika",
+            "email": "asika32764@gmail.com"
+        }
+    ],
+    "require": {
+        "windwalker/core" : "~2.0",
+        "windwalker/phoenix": "1.*",
+        "symfony/yaml" : "~2.0",
+        "filp/whoops": "~1.0 | ~2.0",
+        "fzaninotto/faker": "~1.0",
+        "monolog/monolog": "~1.0",
+        "joomla/datetime": "~2.0",
+        "erusev/parsedown": "~1.0",
+        "lyrasoft/luna": "1.*",
+        "lyrasoft/unidev": "~1.0",
+        "hybridauth/hybridauth": "^2.6",
+
+        "tpyo/amazon-s3-php-class": "*",
+        "adyg/php-imgur-api-client": "1.0.*",
+        "gregwar/image": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "Windwalker\\Composer\\StarterInstaller::rootInstall",
+            "Windwalker\\Composer\\NatikaInstaller::rootInstall"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master" : "1.x-dev"
+        }
+    }
+}
