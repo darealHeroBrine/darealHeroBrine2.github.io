@@ -1,0 +1,8 @@
+
+forum:
+    pattern: /
+    package: forum
+
+admin:
+    pattern: /admin
+    package: admin
