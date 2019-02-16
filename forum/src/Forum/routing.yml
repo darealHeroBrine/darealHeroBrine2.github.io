@@ -1,0 +1,59 @@
+home:
+    pattern: /
+    controller: Category
+topic:
+    pattern: /topic/(*path)/(id)
+    controller: Topic
+topic_new:
+    pattern: /topic/new
+    controller: Topic
+    action:
+        get: NewController
+    variables:
+        extra: edit
+topic_update:
+    pattern: /topic/update
+    controller: Topic
+    method:
+        - POST
+        - PATCH
+        - PUT
+    action:
+        '*': UpdateController
+
+post:
+    pattern: /post(/id)
+    controller: Post
+    method:
+        - POST
+        - PATCH
+        - PUT
+        - DELETE
+
+post_edit:
+    pattern: /post/edit/(id)
+    controller: Post
+    action:
+        get: EditController
+    extra:
+        layout: edit
+
+category_root:
+    pattern: /category
+    controller: Category
+
+category:
+    pattern: /category/(*path)
+    controller: Category
+
+article:
+    pattern: /article/(id)-(alias)
+    controller: Article
+    requirements:
+        id: \d+
+    extra:
+        layout: article
+
+notification:
+    pattern: /notification(/id)
+    controller: Notification
