@@ -1,3 +1,7 @@
+---
+permalink: /Froums
+---
+
 <?php
 /**
  * Part of Windwalker project.
