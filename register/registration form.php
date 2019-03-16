@@ -1,0 +1,59 @@
+<!doctype html>
+<?php
+$servername = "35.202.110.215";
+$username="test";
+$password="";
+$dbname="test";
+try{
+	$conn = mysqli_connect($servername, $username,$password,$dbname);
+	echo("successful in connection");
+}catch(MySQLi_Sql_Exception $ex){
+	echo("error in connection");
+}
+if(isset($_POST['submit'])){
+	$uname=$_POST['name'];
+	$upass=$_post['pass'];
+	$email=$_POST['email'];
+	$register_query = "INSERT INTO 'account' ('id', 'name', 'pass', 'email') VALUES ('', '$uname', '$upass', '$email')";
+	try{
+		$register_result = mysqli_query($conn, $register_query);
+		if($register_result){
+			if(mysqli_affected_rows($conn)>1){
+				echo("registration successful");
+			}else{
+				echo("error in registration");
+			}
+		}
+	}catch(Exception $ex){
+		echo("error".$ex->getMessage());
+	}
+}
+
+
+
+?>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>testing</title>
+</head>
+
+<body>
+	<form action="" method="post">
+		<table align="center">
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" name="name" placeholder="enter the username you want to login with"></td>
+			</tr><tr>
+				<td>Password:</td>
+				<td><input type="text" name="pass" placeholder="enter the Password you want to login with"></td>
+			</tr><tr>
+				<td>email:</td>
+				<td><input type="email" name="email" placeholder="example@gmail.com"</td>
+			</tr><tr>
+				<td></td>
+				<td><input type="submit" name="submit" value="SignUp"></td>
+			</tr>
+		</table>
+</body>
+</html>
